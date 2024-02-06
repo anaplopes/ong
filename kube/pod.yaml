@@ -1,0 +1,11 @@
+kind: Pod
+metadata:
+  name: pod-adm
+  labels:
+    app: pod-adm
+spec:
+  containers:
+  - name: pod-adm
+    image: adm:latest
+    ports:
+    - containerPort: 3000

@@ -1,0 +1,62 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: postgres
+    hostname: postgres
+    image: postgres
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    healthcheck:
+      test: ["executable", "arg"]
+      interval: 1m30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-pguser}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-pgpwd}
+      POSTGRES_DB: ${DB_NAME:-pgdb}
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    restart: always
+    networks:
+      - default
+
+  web:
+    container_name: web
+    hostname: web
+    build:
+      context: .
+      dockerfile: dockerfile/Dockerfile
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: ${PORT:-3000}
+      DB_USERNAME: ${DB_USERNAME:-pguser}
+      DB_PASSWORD: ${DB_PASSWORD:-pgpwd}
+      DB_NAME: ${DB_NAME:-pgdb}
+      DB_HOST: ${DB_HOST:-db}
+      DB_PORT: ${DB_PORT:-5432}
+    restart: always
+    networks:
+      - default
+    depends_on:
+      - db
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  postgres:

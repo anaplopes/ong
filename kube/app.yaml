@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: api-kube
+  labels:
+    app: api-kube
+spec:
+  containers:
+  - name: api-kube
+    image: api-kube:latest
+    ports:
+    - containerPort: 3000
