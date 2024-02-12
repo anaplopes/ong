@@ -51,16 +51,12 @@ dk-prune: ## clean docker
 
 .PHONY: dk-up-db ## up service db
 dk-up-db:
-	@docker compose up -d db
-
-.PHONY: dk-up-sonar ## up service sonarqube
-dk-up-sonar:
-	@docker compose up -d sonarqube
+	@docker compose -f dockerfiles/docker-compose.yml up -d db
 
 .PHONY: dk-up ## up all services
 dk-up:
-	@docker compose up --build -d
+	@docker compose -f dockerfiles/docker-compose.yml up --build -d
 
 .PHONY: dk-down ## down all services
 dk-down:
-	@docker compose down --remove-orphans -v
+	@docker compose -f dockerfiles/docker-compose.yml down --remove-orphans -v

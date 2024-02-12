@@ -10,13 +10,13 @@ services:
     expose:
       - 5432
     healthcheck:
-      test: ["executable", "arg"]
+      test: ["CMD", "pg_isready -U ${DATABASE_USER:-pguser} -d ${DATABASE_NAME:-pgdb}"]
       interval: 1m30s
       timeout: 5s
       retries: 5
       start_period: 30s
     env_file:
-      - .env
+      - ../.env
     environment:
       POSTGRES_USER: ${DB_USERNAME:-pguser}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-pgpwd}
@@ -32,14 +32,14 @@ services:
     container_name: web
     hostname: web
     build:
-      context: .
+      context: ../
       dockerfile: dockerfile/Dockerfile
     ports:
       - "3000:3000"
     expose:
       - 3000
     env_file:
-      - .env
+      - ../.env
     environment:
       NODE_ENV: ${NODE_ENV:-development}
       PORT: ${PORT:-3000}
