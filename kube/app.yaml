@@ -1,12 +1,19 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: api-kube
+  name: ong-api
   labels:
-    app: api-kube
+    app: ong-api
 spec:
   containers:
-  - name: api-kube
-    image: api-kube:latest
+  - name: ong-api
+    image: ong-api:latest
     ports:
     - containerPort: 3000
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
