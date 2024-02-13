@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  db:
+  postgres:
     container_name: postgres
     hostname: postgres
     image: postgres
@@ -28,12 +28,13 @@ services:
     networks:
       - default
 
-  web:
-    container_name: web
-    hostname: web
+  apiong:
+    container_name: apiong
+    hostname: apiong
+    image: apiong:latest
     build:
       context: ../
-      dockerfile: dockerfile/Dockerfile
+      dockerfile: dockerfiles/Dockerfile
     ports:
       - "3000:3000"
     expose:
@@ -46,13 +47,13 @@ services:
       DB_USERNAME: ${DB_USERNAME:-pguser}
       DB_PASSWORD: ${DB_PASSWORD:-pgpwd}
       DB_NAME: ${DB_NAME:-pgdb}
-      DB_HOST: ${DB_HOST:-db}
+      DB_HOST: ${DB_HOST:-postgres}
       DB_PORT: ${DB_PORT:-5432}
     restart: always
     networks:
       - default
     depends_on:
-      - db
+      - postgres
 
 networks:
   default:
