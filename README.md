@@ -1,8 +1,4 @@
 # ONG Management System
-
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=coverage)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
-
 Sistema de gestão de doações e distribuição de alimentos para ONGs.
 
 #### Stack
@@ -31,8 +27,22 @@ Criar uma API RESTful, uma página para registro dos produtos e outra para baixa
 
 ## Executar a aplicação
 
-- Baixe e instale o Node.js em https://nodejs.org/en/download
-- Faça uma cópia do arquivo `.env.template` com o nome `.env` e preencha os valores das variáveis de ambiente.
+1. Baixe e instale o Node.js em https://nodejs.org/en/download
+2. Faça uma cópia do arquivo `.env.template` com o nome `.env` e preencha os valores das variáveis de ambiente.
+3. Execute o comando `npm install` para instalar os pacotes npm;
+4. Use o comando `npm run start` para iniciar a aplicação.
+5. Acesse o Swagger em http://localhost:3000/swagger/
+
+## Executar a aplicação usando o Docker Compose
+
+1. Clone este repositório;
+2. Navegue até a pasta raiz do projeto;
+3. Execute o comando `docker-compose up`
+4. Acesse o Swagger em http://localhost:3000/swagger/
+
+## Como contribuir
+
+Para contribuir com o projeto consulte o guia em [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Installation
 
@@ -66,5 +76,16 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Swagger
-- Acesse o Swagger em http://localhost:3000/swagger/
+## Métricas de código
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=coverage)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=bugs)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=anaplopes_ong&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=anaplopes_ong)
